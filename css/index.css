@@ -1,8 +1,9 @@
 h2{
   color: white;
+  text-align: center;
 }
 body{
-  background-color: black;
+  background-color: grey;
 }
 p{
   color: white;
