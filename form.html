@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="centred">
+        <form id="form1" action="" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <div id="error-name"></div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <div id="error-email"></div>
+
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <div id="error-password"></div>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password">
+            <div id="error-confirm-password"></div>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age">
+            <div id="error-age"></div>
+
+            <div></div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        document.getElementById("form1").addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confpassword = document.getElementById("confirm-password").value.trim();
+            const age = document.getElementById("age").value.trim();
+
+            validateFormName(name, "error-name")
+            validateFormEmail(email, "error-email")
+            
+            validateFormPassword(password, confpassword.value, "error-password", "error-confirm-password")
+            validateFormIfInARange(age, "error-age")
+        });
+    </script>
+</body>
+
+</html>
